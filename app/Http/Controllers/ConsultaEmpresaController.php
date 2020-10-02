@@ -23,6 +23,7 @@ class ConsultaEmpresaController extends Controller
 
         $company_id = $request->input('id');
         Log::info($company_id);
+        Log::info("Nuevos cambios");
     if($request->ajax()){ 
     
      //$data = DocumentarEnvio::latest()->get();
