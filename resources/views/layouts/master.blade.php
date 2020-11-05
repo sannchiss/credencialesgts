@@ -67,45 +67,24 @@
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
+                                    <a class="nav-link collapsed" href="#"  data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        + Agregar Listado
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                     </a>
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
+                                            <a class="nav-link" href="#">Empresa</a>
+                                            <a class="nav-link" href="{{ url('/executive') }}">Ejecutivo</a>
                                         </nav>
                                     </div>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                        </div>
+                            
                     </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
+                 <!--   <div class="sb-sidenav-footer">
+                        <div class="small">-</div>
+                        Sannchiss
+                    </div>-->
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -146,13 +125,13 @@
 
         <!-- Modal -->
 
-<form id="formUsuario">       
+<form id="formUsuario" autocomplete="off">       
 <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Agregar Usuarios</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -187,15 +166,14 @@
 
   </div>
   <div class="form-row">
-    <div class="col-md-6 mb-3">
+    <!--<div class="col-md-6 mb-3">
       <label for="validationDefault03">Empresa</label>
-      <select class="custom-select mr-sm-2" id="empresaSelect" name="id_company">
-        <option  selected>Buscar</option>
       
-      </select>
+      <input class="typeaheadEmpresa form-control" type="text" name="empresa" id="Idempresa">
+      <input class="form-control" type="text" name="hiddeEmpresa0" id="hiddeEmpresaid">
   
 
-    </div>
+    </div>-->
     <div class="col-md-3 mb-3">
     <label for="inputEmail4">Email</label>
     <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
@@ -211,14 +189,14 @@
     </div>
   </div>
 
-  <div class="form-row">
+ <!-- <div class="form-row">
   <div class="col-md-4 mb-3">
       <label for="validationDefaultUsername">Cuenta TXA</label>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroupPrepend2">TXA</span>
         </div>
-        <input type="text" name="acountTXA" class="form-control" id="txa" placeholder="Cuenta" aria-describedby="inputGroupPrepend2" required>
+        <input type="text" name="acountTXA" class="form-control" id="txaid" placeholder="Cuenta" aria-describedby="inputGroupPrepend2" required>
       </div>
     </div>
 
@@ -228,17 +206,17 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroupPrepend2">GTS</span>
         </div>
-        <input type="text" name="acountGTS" class="form-control" id="gts" placeholder="Cuenta" aria-describedby="inputGroupPrepend2" required>
+        <input type="text" name="acountGTS" class="form-control" id="gtsid" placeholder="Cuenta" aria-describedby="inputGroupPrepend2" required>
       </div>
     </div>
 
-  </div>
+  </div>-->
   
   <div class="form-row">
 
   <div class="col-md-6 mb-3">
       <label for="validationDefault03">Ejecutivo Comercial</label>
-      <select class="custom-select mr-sm-2" id="ejecutivoSelect">
+      <select class="custom-select mr-sm-2" id="ejecutivoList" name="ejecutivo">
       <option  selected>Buscar</option>
       </select>
     </div>
@@ -258,14 +236,10 @@
 
 
 
-
-
-
         @yield('scripts')
         
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="../src/js/scripts.js"></script>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
@@ -273,6 +247,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
 
     </body>

@@ -10,20 +10,22 @@
             </div>
 
 <div class="modal-body">
-<form>
+<form id = "cambiarCuenta" autocomplete="off">
   <div class="form-row">
     <div class="col-md-9 mb-3">
       <label for="validationDefault01">Nombre Completo</label>
-      <input type="text" class="form-control" id="name" placeholder="Nombre completo" value="" required>
+      <input type="text" class="form-control" name="nombre" id="name" placeholder="Nombre completo" value="" required>
     </div>
     
     <div class="col-md-4 mb-3">
+    <input class=" form-control" type="hidden" name="hiddeUsuarioId" id="hiddeUsuarioId">
+
       <label for="validationDefaultUsername">Usuario</label>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroupPrepend2">@</span>
         </div>
-        <input type="text" class="form-control" id="user" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
+        <input type="text" class="form-control" name="usuario" id="user" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
       </div>
     </div>
 
@@ -33,25 +35,20 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroupPrepend2">*</span>
         </div>
-        <input type="text" class="form-control" id="password" placeholder="Password" aria-describedby="inputGroupPrepend2" required>
+        <input type="text" class="form-control" name="password" id="password" placeholder="Password" aria-describedby="inputGroupPrepend2" required>
       </div>
     </div>
 
   </div>
   <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault03">Empresa</label>
-      <input type="text" class="form-control" id="empresa" placeholder="">
-
-    </div>
     <div class="col-md-3 mb-3">
     <label for="inputEmail4">Email</label>
-    <input type="email" class="form-control" id="email" placeholder="Email">
+    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
     </div>
     <div class="col-md-3 mb-3">
     <label for="validationDefault03">Modalidad</label>
       
-      <select class="custom-select mr-sm-2" id="modalidad">
+      <select class="custom-select mr-sm-2" name="modalidad" id="modalidad">
         <option selected>Buscar</option>
         <option value="1">B2B</option>
         <option value="2">B2C</option>
@@ -59,43 +56,28 @@
     </div>
   </div>
 
+
   <div class="form-row">
   <div class="col-md-4 mb-3">
-      <label for="validationDefaultUsername">Cuenta TXA</label>
+  <label for="validationDefault03">Ejecutivo Comercial</label>
       <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">TXA</span>
-        </div>
-        <input type="text" class="form-control" id="cuentatxa" placeholder="" aria-describedby="inputGroupPrepend2" required>
-      </div>
-    </div>
+        
+        <input class="typeaheadComercial form-control" type="text" name="ejecutivo" id="comercial">
+        <input class=" form-control" type="hidden" name="hiddeComercialId" id="hiddeComercialId">
 
-    <div class="col-md-4 mb-3">
-      <label for="validationDefaultUsername">Cuenta GTS</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">GTS</span>
-        </div>
-        <input type="text" class="form-control" id="cuentagts" placeholder="" aria-describedby="inputGroupPrepend2" required>
       </div>
     </div>
 
   </div>
+
+
   
-  <div class="form-row">
 
-  <div class="col-md-6 mb-3">
-      <label for="validationDefault03">Ejecutivo Comercial</label>
-      
-      <select class="custom-select mr-sm-2" id="ejecutivoSelect">
-      </select>
-    </div>
-  </div>
 </form>
 </div><!--Fin modal-body-->
     
 <div class="modal-footer">
-     <button type="button" class="btn btn-primary edit">Editar</button>
+     <button type="button" class="btn btn-primary editUsuario">Editar</button>
      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 </div>
 </div>

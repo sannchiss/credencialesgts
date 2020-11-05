@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Ejecutivos extends Migration
+class CreateCuentasUsuariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,10 @@ class Ejecutivos extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('ejecutivos', function (Blueprint $table) {
-        $table->id();
-        $table->string('name');
-        $table->string('phone');
-        $table->string('email');
-        $table->rememberToken();
-        $table->timestamps();
+        Schema::create('cuentas_usuarios', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
-
     }
 
     /**
@@ -32,7 +26,6 @@ class Ejecutivos extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('ejecutivos');
+        Schema::dropIfExists('cuentas_usuarios');
     }
 }

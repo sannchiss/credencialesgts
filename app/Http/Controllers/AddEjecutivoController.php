@@ -1,53 +1,68 @@
 <?php
-
 namespace App\Http\Controllers;
-use App\Models\Usuarios;
-use App\Models\CuentasUsuarios;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent;
 
-class SaveController extends Controller
+use Illuminate\Http\Request;
+use App\Http\Requests;
+
+use App\Models\Empresas;
+use App\Models\Ejecutivos;
+use App\Models\Usuarios;
+use Illuminate\Support\Facades\Log;
+use DataTables;
+
+class AddEjecutivoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+       /// Log::info("Listar Ejecutivo");
+        if($request->ajax()){
+
+            $ejecutivo =  Ejecutivos::select('id', 'name')->get();
+           // Log::info($ejecutivo);
+            
+            $data = Ejecutivos::query()
+            ->select([
+            'id AS id',
+            'name AS name',
+            'phone AS phone',
+            'email AS email'
     
-    public function agregarUsuario(Request $request)
-    {
-
-        $usuario = Usuarios::create(
-                ['name'             => $request['name'],
-                'user'              => $request['user'],
-                'email'             => $request['email'],
-                'password'          => $request['password'],
-                'modality'          => $request['modality'],
-                'id_ejecutivo'      => $request['ejecutivo'],
-                'remember_token'    => $request['remember_token']
             ]);
-            return $usuario;
-            //Le retorna en JSON el resultado de la insert
-            //return "Empresa Registrada";
 
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($data){
+                   
+                    $button = '<button type="button" name = "eliminar" class="btn btn-danger btn-sm eliminarEjecutivo" data-id ="'.$data->id.'"><i class="now-ui-icons files_paper"></i><a>Eliminar</a></button>';
+                   
+                    return $button; 
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        
+        
+        }        
     }
 
-    public function agregarCuentaUsuario(Request $request)
-    { 
-        $usuarios_cuentas = CuentasUsuarios::create([
-            'id_usuario' => $request['idUser'],
-            'empresa'    => $request['hiddeEmpresa'],
-            'cuenta_txa' => $request['acountTXA'],
-            'cuenta_gts' => $request['acountGTS']
+    public function add(Request $request){
+      
+        $ejecutivo = Ejecutivos::create(
+            ['name'             => $request['nombre'],
+            'phone'              => $request['telefono'],
+            'email'             => $request['email'],
+            'remember_token'    => $request['remember_token']
         ]);
-        return $usuarios_cuentas;
+        return $ejecutivo;
+
+
 
     }
+
     /**
      * Show the form for creating a new resource.
      *

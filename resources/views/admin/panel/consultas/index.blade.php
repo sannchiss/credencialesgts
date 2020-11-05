@@ -17,33 +17,40 @@ Creación | Sannchiss
  <script type="text/javascript">
         
 
-    $(document).ready(function(){
+  $(document).ready(function(){
 
-        
-    
-
-    var urlEmpresas = "{{route('processing.empresas')}}";
-    
+    var urlEmpresas = "{{route('processing.usuarioEmpresas')}}";
     axios.get(urlEmpresas)
     .then(function (response) {
         // handle success   
       
-        console.log(response.data.company)  
+        console.log(response.data)
+        $.each(response.data, function(i , item) {
+            console.log(item.empresa)
 
-        $.each(response, function(i , item) {
-            console.log(item.company)
-            $.each(item.company,function(i , it){
-            console.log(it.name)
-
-            $("#empresaSelect").append('<option value='+it.id+'>'+it.name+'</option>');
-
-            }); 
+            $("#empresaSelect").append('<option value='+item.id+'>'+item.company+'</option>');
 
         });
 
 
+            })
+            .catch(function (error) {
+            // handle error
+            console.log(error);
+            })
+            .then(function () {
+            // always executed
+     
+     
+            });
 
-        let urlStand = "{{ route('processing.usuarios') }}";
+
+  
+            let params = { 
+            'ind' : 'conUser'
+        };
+
+        let urlStand = "{{ route('processing.credenciales') }}?" + $.param(params);
         var tableDocuments =  $('#usuarios-table').DataTable({		
                 processing: true,
                 serverSide: true,
@@ -53,7 +60,7 @@ Creación | Sannchiss
                     
                     columns: [
                     {data: 'id', name:'usuarios.id'},	                //  id
-                    {data: 'company', name: 'empresas.name'},	//  company
+                    {data: 'company', name: 'company.empresa'},	//  company
                     {data: 'name', name: 'usuarios.name'},		        //  nombre usuario
                     {data: 'email', name: 'usuarios.email'},			    //  email
                     {data: 'password', name: 'usuarios.password'},	    //  contraseña
@@ -84,7 +91,7 @@ Creación | Sannchiss
             $(document).on('click','.mostrarCredencial',function(){
          
             $('#ShowCredencial').modal(true);
-            var Item_id = $(this).data('id');
+            Item_id = $(this).data('id');
 
             let params = {
                 'Item_id' : $(this).data('id')                
@@ -96,10 +103,10 @@ Creación | Sannchiss
             .then(function (response) {
 
          $.each(response, function(i , item) {
-            console.log(item.response)
+         //   console.log(item.response)
             var flag = 0;
             $.each(item.credencialDetalle,function(i , it){
-            console.log(it.name)
+          //  console.log(it.name)
             $("#name").val(it.name);
             $("#user").val(it.user);
             $("#email").val(it.email);
@@ -110,9 +117,11 @@ Creación | Sannchiss
             $("#modalidad").val(flag);
             $("#cuentatxa").val(it.acountTXA);
             $("#cuentagts").val(it.acountGTS);
-            $("#ejecutivoSelect").append('<option value='+it.comercial+'>'+it.comercial+'</option>');
+            $("#comercial").val(it.comercial);
 
             }); 
+
+            
 
 
         });
@@ -120,9 +129,9 @@ Creación | Sannchiss
         
 
 
-            })
-         
+            });
 
+            
         var urlEjecutivos = "{{route('processing.ejecutivos')}}";
         axios.get(urlEjecutivos)
         .then(function (response) {
@@ -131,11 +140,12 @@ Creación | Sannchiss
        
 
         $.each(response, function(i , item) {
+            console.log("Ejecutivos modal");
             console.log(item.ejecutivo)
             $.each(item.ejecutivo,function(i , it){
             console.log(it.name)
 
-            $("#ejecutivoSelect").append('<option value='+it.id+'>'+it.comercial+'</option>');
+            $("#ejecutivoSelect").append('<option value='+it.id+'>'+it.name+'</option>');
 
             }); 
 
@@ -156,30 +166,52 @@ Creación | Sannchiss
 
      
        });
-
-
+         
 
             
 
             });
         
          
-       
-            })
-            .catch(function (error) {
-            // handle error
-            console.log(error);
-            })
-            .then(function () {
-            // always executed
-     
-     
+            $(document).on('click','.addAcount',function(){
             });
 
+
+            $(".editUsuario").click(function(event){
+            alert(Item_id);
+
+             let params = $('#cambiarCuenta').serialize()+"&id="+Item_id;
+             let urlEdit = "{{route('processing.editarUsuario')}}";
+              axios.post(urlEdit,params)
+              .then((response)=>{
+            
+                          
+        })
+      });
+
+      var pathEmpresa = "{{ route('processing.empresas') }}";
+      $('input.typeaheadEmpresa').typeahead({
+          source:  function (query, process) {
+          return $.get(pathEmpresa, { query: query }, function (data) {
+                  return process(data);
+              });
+          }
+      });
+
+
+      var pathComercial = "{{ route('processing.ejecutivos') }}";
+      $('input.typeaheadComercial').typeahead({
+          source:  function (query, process) {
+          return $.get(pathComercial, { query: query }, function (data) {
+                  return process(data);
+              });
+          }
+      });
 
 
             $("#ShowCredencial").on("hidden.bs.modal", function(){
             $("#ejecutivoSelect").empty();
+            
 
 });  
 
