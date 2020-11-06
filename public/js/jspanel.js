@@ -4,7 +4,7 @@ $(document).ready(function(){
 $(".addUser").click(function(){
    // id = $(this).attr('id')
    var urlEjecutivos = "processing/ejecutivos";
-   console.log("Master")
+   console.log("Backend cuentas")
     axios.get(urlEjecutivos)
     .then(function (response) {
         // handle success   
