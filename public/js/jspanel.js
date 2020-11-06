@@ -4,6 +4,7 @@ $(document).ready(function(){
 $(".addUser").click(function(){
    // id = $(this).attr('id')
    var urlEjecutivos = "processing/ejecutivos";
+   console.log("Master")
     axios.get(urlEjecutivos)
     .then(function (response) {
         // handle success   
@@ -135,7 +136,6 @@ $(document).on('click','.listAcount',function(event){
                     .then((response)=>{
                        // console.log(response)
                         $('#cuentas-usuario-table').DataTable().ajax.reload();
-                                                        
                     })
 
                 });        
