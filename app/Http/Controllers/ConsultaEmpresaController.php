@@ -38,12 +38,13 @@ class ConsultaEmpresaController extends Controller
          'usuarios.id AS id',
          'company.empresa AS company',
          'usuarios.name AS name',
+         'usuarios.user AS user',
          'usuarios.email AS email',
          'usuarios.password AS password',
          'usuarios.modality AS modality',
          'usuarios.created_at AS created_at'
      ])
-     ->groupBy('usuarios.id', 'company.empresa', 'usuarios.name', 'usuarios.email', 'usuarios.password', 'usuarios.created_at', 'usuarios.modality')
+     ->groupBy('usuarios.id', 'company.empresa', 'usuarios.name','usuarios.user','usuarios.email', 'usuarios.password', 'usuarios.created_at', 'usuarios.modality')
      ->orderByRaw('id');
      }else
     {
@@ -51,12 +52,13 @@ class ConsultaEmpresaController extends Controller
             ->select([
                 'usuarios.id AS id',
                 'usuarios.name AS name',
+                'usuarios.user AS user',
                 'usuarios.email AS email',
                 'usuarios.password AS password',
                 'usuarios.modality AS modality',
                 'usuarios.created_at AS created_at'
             ])
-            ->groupBy('usuarios.id', 'usuarios.name', 'usuarios.email', 'usuarios.password', 'usuarios.created_at', 'usuarios.modality')
+            ->groupBy('usuarios.id', 'usuarios.name','usuarios.user','usuarios.email', 'usuarios.password', 'usuarios.created_at', 'usuarios.modality')
             ->orderByRaw('id');
 
 

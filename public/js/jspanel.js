@@ -59,7 +59,7 @@ var urlEmpresas = 'processing/usuarioEmpresas';
 /* CAMPO AUTOCOMPLETE DE CUENTA EMPRESA AGREGAR USUARIO */
 var pathEmpresa = 'processing/empresas';
     $('input.typeaheadEmpresa').typeahead({
-        items: 50, //Cantidad de elementos mostrados en lista
+        items: 80, //Cantidad de elementos mostrados en lista
         source:  function (query, process) {
          $.get(pathEmpresa, { query: query }, function (data) {
           objects = [];
@@ -158,7 +158,7 @@ $(document).on('click','.editInfo',function(){
             //Cliclo para vaciar el autocomplete
             $.each(data, function(i , item) {
                 console.log(item.name)
-                var queryLabel = item.name + ' - ID: ' + item.id;
+                var queryLabel = item.name;
                 labelComercial[queryLabel] = item;
                 objects.push(queryLabel);
             }); 

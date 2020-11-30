@@ -156,15 +156,19 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefaultUsername">Contraseña</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend2">*</span>
-        </div>
-        <input type="text" name="password" class="form-control" id="validationDefaultUsername" placeholder="Password" aria-describedby="inputGroupPrepend2" required>
-      </div>
+      <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" type="button" id="button-aleatorio">Generar</button>
+  </div>
+  <input type="text" class="form-control" id="password123" name="password123"  aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
+      
     </div>
 
   </div>
+
+
+
   <div class="form-row">
     <!--<div class="col-md-6 mb-3">
       <label for="validationDefault03">Empresa</label>
@@ -237,11 +241,20 @@
 
 
         @yield('scripts')
-        
+        <script src="{{ asset('js/accionesjs.js') }}"></script>
+
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+       
+        <!--LIBRETIAS DATATABLE-->
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-        
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-html5-1.6.5/b-print-1.6.5/datatables.min.css"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-html5-1.6.5/b-print-1.6.5/datatables.min.js"></script>
+        <!----------------------->
+
+        <!--LIBRETIAS NOTIFICACIONES-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

@@ -23,6 +23,7 @@
                                         <thead>
                                             <tr>
                                                 <th>id</th>
+                                                <th>Nombre</th>
                                                 <th>Usuario</th>
                                                 <th>@Email</th>
                                                 <th>Constraseña</th>

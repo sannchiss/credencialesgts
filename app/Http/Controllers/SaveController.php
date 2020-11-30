@@ -19,14 +19,14 @@ class SaveController extends Controller
         //
     }
     
-    public function agregarUsuario(Request $request)
+    public |x agregarUsuario(Request $request)
     {
 
         $usuario = Usuarios::create(
                 ['name'             => $request['name'],
                 'user'              => $request['user'],
                 'email'             => $request['email'],
-                'password'          => $request['password'],
+                'password'          => $request['password123'],
                 'modality'          => $request['modality'],
                 'id_ejecutivo'      => $request['ejecutivo'],
                 'remember_token'    => $request['remember_token']

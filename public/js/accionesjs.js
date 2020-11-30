@@ -20,4 +20,13 @@ $(document).on('click','.eliminarEjecutivo',function(event){
 
 });
 
+$('#button-aleatorio').click(function(){
+    var aleatorio = Math.round(Math.random()*20000);
+ 
+    $('#password123').val('Fedex.'+ aleatorio);
+
+});
+
+
+
 });

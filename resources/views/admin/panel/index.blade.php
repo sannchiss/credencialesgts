@@ -28,14 +28,29 @@ $(document).ready(function(){
         var tableDocuments =  $('#usuarios-table').DataTable({		
             processing: true,
             serverSide: true,
+            dom: "Bfrtip",
+            buttons: [{
+extend: "pdf",
+title: "Customized PDF Title",
+filename: "customized_pdf_file_name"
+}, {
+extend: "excel",
+title: "Customized EXCEL Title",
+filename: "customized_excel_file_name"
+}, {
+extend: "csv",
+filename: "customized_csv_file_name"
+}],
+            buttons: ['csv', 'excel', 'print'],
             ajax: url,
             type:'GET', 
-            pageLength: 50, 
+            pageLength: 25, 
                         
                         columns: [
                         {data: 'id', name:'usuarios.id'},	                //  id
                         {data: 'name', name: 'usuarios.name'},		        //  nombre usuario
-                        {data: 'email', name: 'usuarios.email'},	       //  email
+                        {data: 'user', name: 'usuarios.user'},		        //  usuario
+                        {data: 'email', name: 'usuarios.email'},	        //  email
                         {data: 'password', name: 'usuarios.password'},	    //  contraseña
                         {data: 'modality', name: 'usuarios.modality'},
                         {data: 'action',    name: 'action', searchable: true, orderable: true} // Gestion
