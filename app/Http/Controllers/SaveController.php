@@ -19,7 +19,7 @@ class SaveController extends Controller
         //
     }
     
-    public |x agregarUsuario(Request $request)
+    public function agregarUsuario(Request $request)
     {
 
         $usuario = Usuarios::create(
