@@ -21,7 +21,8 @@ Creación | Sannchiss
 <script type="text/javascript">
 
 $(document).ready(function(){
-alert("Cambio");
+
+    alert("Cambio");
      
         let url = "{{ route('processing.usuarios') }}?";
         //Datos al datatable
