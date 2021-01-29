@@ -22,8 +22,6 @@ Creación | Sannchiss
 
 $(document).ready(function(){
 
-    alert("Cambio");
-     
         let url = "{{ route('processing.usuarios') }}?";
         //Datos al datatable
         var tableDocuments =  $('#usuarios-table').DataTable({		
@@ -31,17 +29,17 @@ $(document).ready(function(){
             serverSide: true,
             dom: "Bfrtip",
             buttons: [{
-extend: "pdf",
-title: "Customized PDF Title",
-filename: "customized_pdf_file_name"
-}, {
-extend: "excel",
-title: "Customized EXCEL Title",
-filename: "customized_excel_file_name"
-}, {
-extend: "csv",
-filename: "customized_csv_file_name"
-}],
+            extend: "pdf",
+            title: "Customized PDF Title",
+            filename: "customized_pdf_file_name"
+            }, {
+            extend: "excel",
+            title: "Customized EXCEL Title",
+            filename: "customized_excel_file_name"
+            }, {
+            extend: "csv",
+            filename: "customized_csv_file_name"
+            }],
             buttons: ['csv', 'excel', 'print'],
             ajax: url,
             type:'GET', 
@@ -51,8 +49,8 @@ filename: "customized_csv_file_name"
                         {data: 'id', name:'usuarios.id'},	                //  id
                         {data: 'name', name: 'usuarios.name'},		        //  nombre usuario
                         {data: 'user', name: 'usuarios.user'},		        //  usuario
-                        {data: 'email', name: 'usuarios.email'},	        //  email
                         {data: 'password', name: 'usuarios.password'},	    //  contraseña
+                        {data: 'email', name: 'usuarios.email'},	        //  email
                         {data: 'modality', name: 'usuarios.modality'},
                         {data: 'action',    name: 'action', searchable: true, orderable: true} // Gestion
                         ]					
@@ -72,11 +70,6 @@ filename: "customized_csv_file_name"
 
 
 });
-
-
-
-
-
 
 
 
