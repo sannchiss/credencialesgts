@@ -22,7 +22,6 @@ Creación | Sannchiss
 
 $(document).ready(function(){
 
-        let url = "{{ route('processing.usuarios') }}?";
         //Datos al datatable
         var tableDocuments =  $('#usuarios-table').DataTable({		
             processing: true,
@@ -41,10 +40,10 @@ $(document).ready(function(){
             filename: "customized_csv_file_name"
             }],
             buttons: ['csv', 'excel', 'print'],
-            ajax: url,
+            ajax: "{{ route('processing.usuarios') }}",
             type:'GET', 
-            pageLength: 25, 
-                        
+            pageLength: 25,
+                                   
                         columns: [
                         {data: 'id', name:'usuarios.id'},	                //  id
                         {data: 'name', name: 'usuarios.name'},		        //  nombre usuario
@@ -56,7 +55,7 @@ $(document).ready(function(){
                         ]					
                     
                     });
-                   
+
            $('#listaCompany').change(function(){ 
             let params = {
              'empresa' : $(this).val()

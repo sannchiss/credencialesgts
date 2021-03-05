@@ -33,6 +33,10 @@ Route::group([], function()
     
  });  
 
+ Route::get('/company', function(){
+    return view('admin.add.empresa.index');
+ });
+
 
 }); 
 
@@ -75,4 +79,11 @@ Route::name('executive.')
    Route::get('listexecutive', 'AddEjecutivoController@index')->name('listexecutive');
    Route::post('addexecutive', 'AddEjecutivoController@add')->name('addexecutive');
 
+});
+
+Route::name('upload.') 
+->prefix('upload')
+->group(function(){
+Route::post('file', 'CargaArchivoEmpresa@store')->name('file');;
+Route::get('loading','CargaArchivoEmpresa@listCompany')->name('loading');
 });

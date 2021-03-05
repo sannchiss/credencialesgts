@@ -1,0 +1,29 @@
+-        Numero RUT del Cliente:       77585350-6
+-        Nombre del Cliente/Usuario:  Bodega y Viñedos Korta Bucarey LTDA
+-        e-mail de contacto:                 Karina Espina karina.espina@korta.cl
+-     Cta TXA 620056675
+ 
+-        Numero RUT del Cliente:       96857970-3
+-        Nombre del Cliente/Usuario:  STOLLER DE CHILE S A
+-        e-mail de contacto:                 Felipe Valenzuela bodega@stoller.cl  
+-     Cta TXA 001108700 - 620108700
+ 
+-        Numero RUT del Cliente:       96978670-2
+-        Nombre del Cliente/Usuario:  SEIGARD CHILE S A
+-        e-mail de contacto:                 Margarita Ruz margarita.ruz@seigard.cl
+-     Cta TXA 610169640
+ 
+-        Numero RUT del Cliente:       76902220-1
+-        Nombre del Cliente/Usuario:  ARAUCANIA FLOWERS
+-        e-mail de contacto:                 Salomón Meneses salomon@araucaniaflowers.cl
+-     Cta TXA 750052699
+
+
+- KUDZU LOGISTICS SPA - 900083979 - 01	
+
+Confirmo apertura de cuenta GRUPO LOS ANDES SPA
+Cuenta nueva 003000513
+RUT  76.839.983-2
+Solicito Perfil Completo
+
+
