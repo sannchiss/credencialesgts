@@ -15,10 +15,10 @@ Creación | Sannchiss
 
 $(document).ready(function(){
 
-    Dropzone.options.myDropzone = {
+/*     Dropzone.options.myDropzone = {
             autoProcessQueue: false,
             uploadMultiple: true,
-            maxFilezise: 50,
+            maxFilezise: 50,    
             maxFiles: 2,
             
             init: function() {
@@ -43,7 +43,7 @@ $(document).ready(function(){
                     console.log("Cargado");
                 );
             }
-        };
+        }; */
 
 
 
@@ -54,9 +54,23 @@ $(document).ready(function(){
         $('#cuentas-table').DataTable({		
             processing: true,
             serverSide: true,
+            dom: "Bfrtip",
+            buttons: [{
+            extend: "pdf",
+            title: "Customized PDF Title",
+            filename: "customized_pdf_file_name"
+            }, {
+            extend: "excel",
+            title: "Customized EXCEL Title",
+            filename: "customized_excel_file_name"
+            }, {
+            extend: "csv",
+            filename: "customized_csv_file_name"
+            }],
+            buttons: ['csv', 'excel', 'print'],
             ajax: url,
             type:'GET', 
-            pageLength: 50, 
+            pageLength: 150, 
                         
                         columns: [
                         {data: 'id', name:'cuentas.id'},	                            //  id
@@ -67,6 +81,19 @@ $(document).ready(function(){
                         ]					
               
               });
+
+
+
+        $(document).on('click','.copy', function(event){
+            event.preventDefault();
+
+            $("#input").val($(this).data('empresa')+' | '+$(this).data('txa')+' | '+$(this).data('gts'));
+            document.querySelector("#input").select();
+            document.execCommand("copy");
+        });   
+
+
+
 
 
 });
